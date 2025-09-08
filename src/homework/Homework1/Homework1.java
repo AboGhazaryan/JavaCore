@@ -1,6 +1,6 @@
-package homework.Homwork1;
+package homework.Homework1;
 
-public class Homwork1 {
+public class Homework1 {
     public static void main (String[] args){
       int x = 15;
       int y = 9;
