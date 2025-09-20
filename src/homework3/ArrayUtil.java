@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class ArrayUtil {
     public static void main(String[] args) {
-        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8};{
+        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8};
+        {
 
             for (int i = 0; i < numbers.length; i++) { //Տպել բոլոր էլեմենտները իրար կողք, բաժանված պռաբելով։
                 System.out.print(numbers[i] + " ");
@@ -16,40 +17,47 @@ public class ArrayUtil {
             System.out.println("print array length: " + numbers.length);//Տպել մասիվի երկարությունը
 
             int min = numbers[0];              //Տպել մասիվի ամենափոքր թիվը
-            for (int i = 0; i < numbers.length; i++) {
+            for (int i = 1; i < numbers.length; i++) {
                 if (numbers[i] < min) {
                     min = numbers[i];
                 }
             }
-            System.out.println("minimum element is: " + min);
+            System.out.println("minimum number is: " + min);
 
 
             int middle = numbers.length / 2;
             System.out.println("print the middle number of the array:  " + numbers[middle]);//Տպել մասիվի մեջտեղի թիվը
-            if (numbers.length <= 2)
-                System.out.println("can't print middle values.");
-            if (numbers.length % 2 == 0)
-                System.out.println("Middle values " + numbers[middle - 1] + "," + numbers[middle]);
-            if (numbers.length % 2 == 1);
-            System.out.println( numbers[middle]);
+            if (numbers.length > 2){
+                if (numbers.length <= 2)
+                    if (numbers.length % 2 != 0){
+                        System.out.println("Middle values " + numbers[numbers.length / 2]);
+                    } else {
+                        if (numbers.length % 2 == 0) ;
+                        System.out.println("middle " + numbers[numbers.length / 2 - 1] + ", " + numbers[numbers.length / 2]);
+                    }
 
-            int counter = 0;
+            } else {
+                System.out.println("can't print middle values");
+            }
+
+
+            int evencount = 0;
             for (int i = 0; i < numbers.length; i++) {
-                if (numbers[i] % 2 == 0){
-                    counter++;
+                if (numbers[i] % 2 == 0) {
+                    evencount++;
                 }
 
             }
-            System.out.println( "print the number of pairs numbers in the array:  " + counter );
+            System.out.println("print the number of pairs numbers in the array:  " + evencount);
 
-            int counter1 = 0 ;
+            int oddcount = 0;
             for (int i = 0; i < numbers.length; i++) {
-                if (numbers[i] % 2 != 0){
-                    counter1++;
+                if (numbers[i] % 2 != 0) {
+                    oddcount++;
                 }
 
             }
-            System.out.println("print the number of odd numbers in the array:  " + counter1);
+            System.out.println("print the number of odd numbers in the array:  " + oddcount);
 
             int sum = 0;
             for (int i = 0; i < numbers.length; i++) {
@@ -57,17 +65,8 @@ public class ArrayUtil {
             }
             System.out.println("print the sum of the elements in an array: " + sum);
 
-            double average =(double) sum / numbers.length;
+            double average = (double) sum / numbers.length;
             System.out.println("print the arithmetic mean of an array: " + average);
-
-
-
-
-
-
-
-
-
 
 
         }
