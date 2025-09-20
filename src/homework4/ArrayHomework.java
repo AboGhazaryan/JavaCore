@@ -53,7 +53,7 @@ public class ArrayHomework {
 
             for (int i = 0; i < chars.length; i++) {
                 char ch  = chars[i];
-                if (ch =='ա' || ch == 'ե' || ch == 'ը' ||  ch == 'ի' || ch == 'ո' || ch == 'օ'  || ch == 'է' || ch == '\u0585'   ){
+                if (ch =='ա' || ch == 'ե' || ch == 'ը' ||  ch == 'ի' || ch == 'ո' || ch == 'օ'  || ch == 'է'    ){
                     vowelCount++;
 
                 }
