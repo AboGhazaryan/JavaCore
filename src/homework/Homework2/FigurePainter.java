@@ -1,4 +1,4 @@
-package homework2.Homework2;
+package homework.Homework2;
 
 public class FigurePainter {
     public static void main(String[] args) {
@@ -22,12 +22,12 @@ public class FigurePainter {
         System.out.println();
 
         for (int f = 5; f > 0; f--) {
-            for (int i = 1; i < f ; i++) {
+            for (int i = 1; i < f; i++) {
                 System.out.print("  ");
             }
-            for (int i = 6; i > f ; i--) {
+            for (int i = 6; i > f; i--) {
                 System.out.print("* ");
-                
+
             }
             System.out.println();
 
@@ -35,10 +35,10 @@ public class FigurePainter {
         System.out.println();
 
         for (int n = 1; n < 6; n++) {
-            for (int m = 1; m < n ; m++) {
+            for (int m = 1; m < n; m++) {
                 System.out.print("  ");
             }
-            for (int m = 6; m > n ; m--) {
+            for (int m = 6; m > n; m--) {
                 System.out.print("* ");
 
             }
@@ -47,8 +47,8 @@ public class FigurePainter {
         }
         System.out.println();
 
-        for (int z = 5; z > 0 ; z--) {
-            for (int x = 1; x < z ; x++) {
+        for (int z = 5; z > 0; z--) {
+            for (int x = 1; x < z; x++) {
                 System.out.print(" ");
             }
             for (int x = 6; x > z; x--) {
@@ -57,7 +57,7 @@ public class FigurePainter {
             System.out.println();
 
         }
-        for (int t = 1; t < 6 ; t++) {
+        for (int t = 1; t < 6; t++) {
             for (int y = 1; y < t; y++) {
                 System.out.print(" ");
             }
@@ -66,10 +66,21 @@ public class FigurePainter {
             }
             System.out.println();
         }
+        for (int i = 5; i > 0; i--) {
+            for (int j = 1; j <i ; j++) {
+                System.out.print("0 ");
+            }
+            for (int j = 6; j > i; j--) {
+                System.out.print("1 ");
+            }
+            System.out.println();
+
+        }
     }
-
-
 }
+
+
+
 
 
 

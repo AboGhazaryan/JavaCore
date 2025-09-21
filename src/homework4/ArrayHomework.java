@@ -52,13 +52,13 @@ public class ArrayHomework {
             int vowelCount = 0; //ձայնավորների քանակը։
 
             for (int i = 0; i < chars.length; i++) {
-                char ch  = chars[i];
-                if (ch =='ա' || ch == 'ե' || ch == 'ը' ||  ch == 'ի' || ch == 'ո' || ch == 'օ'  || ch == 'է'    ){
+                char ch = chars[i];
+                if (ch == 'ա' || ch == 'ե' || ch == 'ը' || ch == 'ի' || ch == 'ո' || ch == 'օ' || ch == 'է') {
                     vowelCount++;
 
                 }
             }
-            System.out.print( "vowelCount: " + vowelCount);
+            System.out.print("vowelCount: " + vowelCount);
         }
 
 

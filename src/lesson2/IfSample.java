@@ -5,7 +5,7 @@ public class IfSample {
         int x = 10;
         int y = 20;
         //true,false
-        if(x < y) {
+        if (x < y) {
             System.out.println("x меньше y");
         }
         x = x * 2;

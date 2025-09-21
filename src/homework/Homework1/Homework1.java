@@ -5,12 +5,12 @@ public class Homework1 {
       int x = 15;
       int y = 9;
 
-      if (x > y) {
+      if  (x > y) {
           System.out.println("x is greater than y");
       }
           System.out.println("end of if");
 
-      for (int z = 1; z < 6; z = z + 1 ){
+      for (int z = 1; z < 6; z++){
           System.out.println(" signifisance z " + z );
       }
           System.out.println("end of for ");
@@ -25,7 +25,12 @@ public class Homework1 {
         for (int v = 1; v <= 10; v++){
             System.out.println(n + " * " + v + " = " + (n * v ));
         }
+        for (int i = 0; i < 10; i++) {
+          int  k = i + 1;
+            System.out.println(n + "*" + k + "=" + (n * k));
 
+
+        }
 
 
     }
