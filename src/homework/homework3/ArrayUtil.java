@@ -1,6 +1,4 @@
-package homework3;
-
-import java.util.Arrays;
+package homework.homework3;
 
 public class ArrayUtil {
     public static void main(String[] args) {

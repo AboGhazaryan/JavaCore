@@ -1,26 +1,35 @@
-package homework4;
+package homework.homework4;
 
 public class ArrayHomework {
     public static void main(String[] args) {
         // 1
-        int[] numbers = {1, 5, 6, 6, 7, 55, 9, 3, 15, 77};
+        int[] numbers = {1, 5, 6, 6, 7, 55, 4, 3, 15, 77};
         {
-            int n = 6;
-            {
-
-                int quantity = 0;
-                for (int i = 0; i < numbers.length; i++) {
-                    if (numbers[i] == n) {
-                        quantity++;
-                    }
-                }
-                System.out.print("Variable: " + quantity);
-            }
-            System.out.println();
+//            int n = 6;
+//            {
+//
+//                int quantity = 0;
+//                for (int i = 0; i < numbers.length; i++) {
+//                    if (numbers[i] == n) {
+//                        quantity++;
+//                    }
+//                }
+//                System.out.print("Variable: " + quantity);
+//            }
+//            System.out.println();
             //2
-            for (int i = numbers.length - 1; i >= 0; i--) {
-                System.out.print(numbers[i] + " ");
 
+
+            int lastindex = numbers.length - 1;
+            int temp;
+            for (int i = 0; i < numbers.length / 2; i++) {
+                temp = numbers[i];
+                numbers[i] = numbers[lastindex];
+                numbers[lastindex] = temp;
+                lastindex--;
+            }
+            for (int number : numbers) {
+                System.out.print(number + " ");
             }
             System.out.println();
             //3
