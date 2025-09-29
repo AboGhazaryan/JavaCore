@@ -7,8 +7,7 @@ public class Sort {
         int[] array = {4, 7, 1, 3, 9, 0, 2};
 
         {
-            //  Arrays.sort(array);
-            // System.out.println(Arrays.toString(array));
+
             for (int i = 0; i < array.length - 1; i++) {
                 for (int j = 0; j < array.length - 1 - i; j++) {
                     if (array[j] > array[j + 1]) {
