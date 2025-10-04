@@ -11,25 +11,30 @@ public class Example {
 //            System.out.println(i);
 //
 //        }
-        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7,8, 9};
+        int val = 7;
+        boolean found = false;
+        for (int num : numbers){
+            if (num == val){
+                found = true;
+                break;
+            }
+        }
+        if (found){
+            System.out.println(val);
+        }
 //        int val = 7;
 //        boolean found = false;
-//        for (int num : numbers){
-//            if (num == val){
+//        for (int i = 0; i < numbers.length; i++) {
+//            if (numbers[i] == val) {
 //                found = true;
 //                break;
 //            }
 //        }
-//        if (found){
+//        if (found) {
 //            System.out.println(val);
 //        }
-        int val = 7;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == val) {
-                break;
-            }
-        }
-        System.out.println(val);
+
 
 
     }
