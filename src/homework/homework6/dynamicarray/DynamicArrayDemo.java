@@ -2,19 +2,19 @@ package homework.homework6.dynamicarray;
 
 public class DynamicArrayDemo {
     public static void main(String[] args) {
-        DynamicArray diarray = new DynamicArray();
-        int[] array ={15,1,5,6,8,25,85,69,42,10};
-        for(int number  : array) {
-            diarray.add(number);
+        DynamicArray dy = new DynamicArray();
+        for (int i = 0; i < 10; i++) {
+            dy.add(i + 1);
         }
 
 
 
-        System.out.println("Տպում ենք մասիվի ավելացված էլեմենտները");
-        diarray.print();
+
+        System.out.println("print array elements");
+        dy.print();
         // Ստուգում ենք getByIndex()
-        System.out.println("element index 3" + diarray.getByIndex(3));
-        System.out.println("element index 11" + diarray.getByIndex(11));
+        System.out.println("element index 3: " + dy.getByIndex(3));
+        System.out.println("element index 11: " + dy.getByIndex(11));
     }
 
 }
