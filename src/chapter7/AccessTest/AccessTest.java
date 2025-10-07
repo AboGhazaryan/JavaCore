@@ -1,4 +1,4 @@
-package chapter7.Recursion.AccessTest;
+package chapter7.AccessTest;
 
 public class AccessTest {
     public static void main(String[] args) {

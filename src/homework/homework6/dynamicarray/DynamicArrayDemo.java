@@ -6,10 +6,6 @@ public class DynamicArrayDemo {
         for (int i = 0; i < 10; i++) {
             dy.add(i + 1);
         }
-
-
-
-
         System.out.println("print array elements");
         dy.print();
         // Ստուգում ենք getByIndex()

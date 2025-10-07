@@ -1,4 +1,4 @@
-package chapter7.Recursion.AccessTest;
+package chapter7.AccessTest;
 
 // В этой программе демонстрируется отличие
 //модификаторов public и private.
