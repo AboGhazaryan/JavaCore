@@ -3,7 +3,15 @@ package homework.homework6.dynamicarray;
 public class DynamicArray {
 
     //սա մեր հիմնական մասիվն է, որտեղ պահելու ենք ավելացվող էլեմենտները
-    private int[] array = new int[10];
+    private int[] array;
+
+    DynamicArray() {
+        array = new int[10];
+    }
+
+    DynamicArray(int defaultlength) {
+        array = new int[defaultlength];
+    }
 
 
     //սա մեր մասիվի մեջ ավելացված էլեմենտների քանակն է
@@ -47,8 +55,8 @@ public class DynamicArray {
             System.out.println("չկա նման էլեմենտ");
             return;
         }
-        for (int i = index; i < size ; i++) {
-            array[i] = array[i + 1];
+        for (int i = index; i < size; i++) {
+            array[i - 1] = array[i];
         }
         size--;
     }
@@ -78,13 +86,13 @@ public class DynamicArray {
             array[i] = array[i - 1];
         }
         array[index] = value;
-        size ++;
+        size++;
     }
 
     //Վերադարձնել true եթե տրված value-ն կա մեր մասիվի մեջ, եթե ոչ false
     public boolean exists(int value) {
         for (int i = 0; i < size; i++) {
-            if(array[i] == value){
+            if (array[i] == value) {
                 return true;
             }
         }
@@ -95,7 +103,7 @@ public class DynamicArray {
     //եթե չկա, -1
     public int getIndexByValue(int value) {
         for (int i = 0; i < size; i++) {
-            if(array[i] == value){
+            if (array[i] == value) {
                 return i;
             }
         }

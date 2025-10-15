@@ -8,7 +8,7 @@ public class TestStack {
         for (int i = 0; i < 10; i++) mystack1.push(i);
         for (int i = 0; i < 20 ; i++) mystack2.push(i);
         // извлечь эти числа из стека
-        System.out.println("Стек в mystackl: ");
+        System.out.println("Стек в mystack1: ");
         for (int i = 0; i < 10; i++) {
             System.out.print(mystack1.pop() + " ");
         }
@@ -17,7 +17,7 @@ public class TestStack {
         for (int i = 0; i < 10; i++) {
             System.out.print(mystack2.pop() + " ");
             // эти операторы недопустимы
-            // mystackl.tos = -2;
+            // mystack1.tos = -2;
             // mystack2.stck[3] = 100;
         }
     }
