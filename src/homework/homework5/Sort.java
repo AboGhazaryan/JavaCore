@@ -18,7 +18,7 @@ public class Sort {
                 }
             }
             for (int num : array)
-                System.out.print(num);
+                System.out.print(num + " ");
 
 
         }

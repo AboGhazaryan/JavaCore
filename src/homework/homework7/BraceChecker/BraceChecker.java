@@ -2,30 +2,49 @@ package homework.homework7.BraceChecker;
 
 public class BraceChecker {
 
-    private String text;
-    private Stack stack = new Stack();
+    private Stack stack;
 
-    public BraceChecker(String text) {
-        this.text = text;
-    }
-
-    public void check() {
+    public void check(String text) {
+        stack = new Stack(text.length());
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
+            int last;
 
-            if (c == '(' || c == '[' || c == '{') {
-                stack.push(c);
-            } else if (c == '}' || c == ']' || c == ')') {
-                if (stack.tos == -1) {
-                    System.out.println("Error : Closed By " + c + "but not closed at index" + i);
-                }
-                int top = stack.pop();
-                char first = (char) top;
-                
-                if ((c == '}' && first != '{') || (c == ']' && first != '[') || (c == ')' && first != '(')) {
-                    System.out.println("Error : Opened by " + first + "but closed at " + c + "at index " + i);
-                }
+            switch (c) {
+                case '(':
+                case '{':
+                case '[':
+                    stack.push(c);
+                    break;
+                case ')':
+                    last = stack.pop();
+                    if (last == 0) {
+                        System.err.println("Error : Closed By ) but not closed at index " + i);
+                    } else if (last != '(') {
+                        System.err.println("Error : Opened by " + (char) last + " but closed at ) at index " + i);
+                    }
+                    break;
+                case '}':
+                    last = stack.pop();
+                    if (last == 0) {
+                        System.err.println("Error : Closed By } but not closed at index " + i);
+                    } else if (last != '{') {
+                        System.err.println("Error : Opened by " + (char) last + " but closed at } at index " + i);
+                    }
+                    break;
+                case ']':
+                    last = stack.pop();
+                    if (last == 0) {
+                        System.err.println("Error : Closed By ] but not closed at index " + i);
+                    } else if (last != '[') {
+                        System.err.println("Error : Opened by " + (char) last + " but closed at ] at index " + i);
+                    }
+                    break;
             }
+        }
+        int last;
+        while ((last = stack.pop()) != 0){
+            System.err.println("Error: Opend " + (char)last + " witherr closing");
         }
 
     }

@@ -1,12 +1,17 @@
 package homework.homework7.BraceChecker;
 
 public class Stack {
-    private int[] array = new int[10];
+    private int[] array;
     public int tos;
 
 
     public Stack(){
         tos = -1;
+        array = new int[10];
+    }
+    Stack(int length){
+        tos = - 1;
+        array = new int[length];
     }
 
 
