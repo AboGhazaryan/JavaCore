@@ -10,8 +10,8 @@ public class DynamicArrayDemo {
         dy.print();
         System.out.println("element index 3: " + dy.getByIndex(3));
         System.out.println("element index 11: " + dy.getByIndex(11));
-        System.out.println("ջնջել մասիվի index-երորդ էլեմենտը");
-        dy.deleteByIndex(15);
+        System.out.println("ջնջել մասիվի index-րդ էլեմենտը");
+        dy.deleteByIndex(14);
         dy.print();
         System.out.println("value-ն տրված ինդեքսում ++,");
         dy.add(1, 50);

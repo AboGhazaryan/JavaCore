@@ -3,11 +3,11 @@ package homework.Homework2;
 public class FigurePainter {
     public static void main(String[] args) {
 
-        for (int f = 5; f > 0; f--) {
-            for (int i = 1; i < f; i++) {
+        for (int f = 0; f < 5; f++) {
+            for (int i = 4; i > f; i--) {
                 System.out.print("");
             }
-            for (int i = 6; i > f; i--) {
+            for (int i = 0; i <= f; i++) {
                 System.out.print("* ");
 
             }

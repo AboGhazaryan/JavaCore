@@ -11,7 +11,7 @@ public class ArrayUtil {
             System.out.println();
             System.out.println("_______________________");
             System.out.println("print the first element of an array:  " + numbers[0]);   //Տպել մասիվի առաջին էլեմենտը
-            System.out.println("print the last element of an array:  " + (numbers.length - 1));//Տպել մասիվի վերջին էլեմենտը
+            System.out.println("print the last element of an array:  " + numbers[numbers.length - 1]);//Տպել մասիվի վերջին էլեմենտը
             System.out.println("print array length: " + numbers.length);//Տպել մասիվի երկարությունը
 
             int min = numbers[0];              //Տպել մասիվի ամենափոքր թիվը

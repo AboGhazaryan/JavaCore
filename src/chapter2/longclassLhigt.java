@@ -1,4 +1,4 @@
-package lesson2;
+package chapter2;
 
 public class longclassLhigt {
     public static void main(String []args ){

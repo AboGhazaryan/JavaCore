@@ -48,7 +48,7 @@ public class DynamicArray {
         return (array[index]);
     }
 
-    //ջնջել մասիվի index-երորդ էլեմենտը
+    //ջնջել մասիվի index-րդ էլեմենտը
     //եթե չկա նման ինդեքսով էլեմենտ, տպել, որ չկա նման էլեմենտ
     public void deleteByIndex(int index) {
         if (index < 0 || index > size) {
@@ -56,7 +56,7 @@ public class DynamicArray {
             return;
         }
         for (int i = index; i < size; i++) {
-            array[i - 1] = array[i];
+            array[i-1] = array[i];
         }
         size--;
     }

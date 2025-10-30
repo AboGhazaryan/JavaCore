@@ -1,19 +1,21 @@
-package Library;
+package Library.model;
+
 import java.util.Objects;
+
 public class Book {
-    private int id;
+    private Author autor;
     private String title;
-    private String autorName;
     private double price;
     private int quantity;
+    private int id;
 
-    public Book(String title, String autorName, double price) {
+    public Book(String title, Author autor, double price) {
         this.title = title;
-        this.autorName = autorName;
         this.price = price;
+        this.autor = autor;
     }
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -25,12 +27,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getAutorName() {
-        return autorName;
+    public Author getAutor() {
+        return autor;
     }
 
-    public void setAutorName(String autorName) {
-        this.autorName = autorName;
+    public void setAutor(Author autor) {
+        this.autor = autor;
     }
 
     public double getPrice() {
@@ -48,6 +50,7 @@ public class Book {
     public int getId() {
         return id;
     }
+
     public int getQuantity() {
         return quantity;
     }
@@ -60,22 +63,22 @@ public class Book {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Double.compare(price, book.price) == 0 && Objects.equals(title, book.title) && Objects.equals(autorName, book.autorName);
+        return Double.compare(price, book.price) == 0 && quantity == book.quantity && id == book.id && Objects.equals(autor, book.autor) && Objects.equals(title, book.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, autorName, price);
+        return Objects.hash(autor, title, price, quantity, id);
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title ='" + title + '\'' +
-                ", autorName ='" + autorName + '\'' +
-                ", price =" + price + ", id = " + id + ", quantity =" + quantity +
+                "autor=" + autor +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", id=" + id +
                 '}';
     }
-
-
 }
