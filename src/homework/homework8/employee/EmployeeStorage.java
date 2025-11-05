@@ -1,5 +1,7 @@
 package homework.homework8.employee;
 
+import homework.homework8.employee.exception.EmployeeNotFoundException;
+
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
     private int size = 0;
@@ -37,16 +39,35 @@ public class EmployeeStorage {
         }
     }
 
-    public void searchEmployeeByCompanyName(String companyName){
 
+    public void searchEmployeeByCompanyName(String companyName) {
+
+        boolean found = false;
         for (int i = 0; i < size; i++) {
             if (employees[i].getCompany().equals(companyName)) {
                 System.out.println(employees[i]);
-                return;
+                found = true;
             }
         }
+        if (!found) {
+            System.out.println("There is no company " + companyName + " by that name. ");
+        }
 
-        System.out.println("There is no company " + companyName + " by that name. ");
+
+    }
+
+    public void searchByPositionLevel(PositionLevel positionLevel) throws EmployeeNotFoundException {
+
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getPositionLevel() == positionLevel) {
+                System.out.println(employees[i]);
+                found = true;
+            }
+        }
+        if(!found) {
+            throw  new EmployeeNotFoundException("There is no " + positionLevel + " level position.");
+        }
 
     }
 }

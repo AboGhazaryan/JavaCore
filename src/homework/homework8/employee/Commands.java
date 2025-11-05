@@ -6,6 +6,7 @@ public interface Commands {
     String PRINT_ALL_EMPLOYEE = "2";
     String SEARCH_EMPLOYEE_BY_EMPLOYEE_ID = "3";
     String SEARCH_EMPLOYEE_BY_COMPANY_NAME = "4";
+    String SEARCH_EMPLOYES_BY_POSITION_LEVEL = "5";
 
 
     static void printCommands (){
@@ -14,6 +15,7 @@ public interface Commands {
         System.out.println("Please input " + PRINT_ALL_EMPLOYEE + "for print all employee:" );
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_EMPLOYEE_ID + "for search employee by employe ID:" );
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_COMPANY_NAME + "for search employee by company name:" );
+        System.out.println("Please input " + SEARCH_EMPLOYES_BY_POSITION_LEVEL + "for search employee by position level:" );
     }
 }
 
