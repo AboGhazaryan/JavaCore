@@ -80,7 +80,7 @@ public class EmployeeDemo implements Commands {
         PositionLevel [] values = PositionLevel.values();
         for(PositionLevel value : values)
             System.out.println(value + " ");
-        PositionLevel positionLevel = PositionLevel.valueOf(scanner.nextLine());
+        PositionLevel positionLevel = PositionLevel.valueOf(scanner.nextLine().toUpperCase());
 
 
         Employee employee = new Employee(name, surname, company, position, salary, employeeID, positionLevel);
