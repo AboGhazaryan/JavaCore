@@ -55,9 +55,10 @@ public class EmployeeDemo implements Commands {
             System.out.println(value + " ");
         try{
             PositionLevel level = PositionLevel.valueOf(scanner.nextLine().toUpperCase());
-
             employeeStorage.searchByPositionLevel(level);
-        }catch (EmployeeNotFoundException e ) {
+        }catch (IllegalArgumentException e ) {
+            System.out.println("invalid position level. please try again.");
+        }catch (EmployeeNotFoundException e){
             System.out.println(e.getMessage());
         }
     }
