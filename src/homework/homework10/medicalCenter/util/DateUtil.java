@@ -1,0 +1,17 @@
+package homework.homework10.medicalCenter.util;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateUtil {
+    private static final SimpleDateFormat sdf = new  SimpleDateFormat("dd/MM/yyyy");
+    public static String fromDateToStr(Date date){
+        return sdf.format(date);
+    }
+    public static  Date fromStrToDate(String str) throws ParseException {
+        return sdf.parse(str);
+    }
+
+
+}
