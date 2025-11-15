@@ -1,4 +1,4 @@
-package homework.homework10.medicalCenter.human;
+package homework.homework10.medicalCenter.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -54,7 +54,7 @@ public class Person  implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Person person)) return false;
-        return id == person.id && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(phoneNumber, person.phoneNumber);
+        return Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(id, person.id) && Objects.equals(phoneNumber, person.phoneNumber);
     }
 
     @Override

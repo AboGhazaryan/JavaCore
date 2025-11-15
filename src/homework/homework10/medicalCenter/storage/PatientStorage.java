@@ -1,8 +1,8 @@
 package homework.homework10.medicalCenter.storage;
 
 
-import homework.homework10.medicalCenter.human.Doctor;
-import homework.homework10.medicalCenter.human.Patient;
+import homework.homework10.medicalCenter.model.Doctor;
+import homework.homework10.medicalCenter.model.Patient;
 
 import java.io.Serializable;
 
@@ -26,7 +26,7 @@ public class PatientStorage implements Serializable {
     public void searchPatientByDoctor(Doctor doctor ) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            if (patients[i].getDoctor().equals(doctor) ) {
+            if (patients[i].getDoctor().equals(doctor)) {
                 System.out.println(patients[i]);
                 found = true;
             }

@@ -1,10 +1,10 @@
 package homework.homework10.medicalCenter;
 
-import Library.exception.AuthorNotFoundException;
-import Library.model.Author;
+
+
 import homework.homework10.medicalCenter.exception.DoctorNotFoundException;
-import homework.homework10.medicalCenter.human.Doctor;
-import homework.homework10.medicalCenter.human.Patient;
+import homework.homework10.medicalCenter.model.Doctor;
+import homework.homework10.medicalCenter.model.Patient;
 import homework.homework10.medicalCenter.storage.DoctorStorage;
 import homework.homework10.medicalCenter.storage.PatientStorage;
 import homework.homework10.medicalCenter.util.FileUtil;
@@ -63,6 +63,7 @@ public class MedicalCenterDemo implements Commands {
                     break;
                 case PRINT_ALL_DOCTOR:
                     doctorStorage.print();
+                    break;
                 default:
                     System.out.println("Wrong command! try again!");
 

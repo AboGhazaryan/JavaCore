@@ -1,4 +1,4 @@
-package homework.homework10.medicalCenter.human;
+package homework.homework10.medicalCenter.model;
 
 import homework.homework10.medicalCenter.Profession;
 

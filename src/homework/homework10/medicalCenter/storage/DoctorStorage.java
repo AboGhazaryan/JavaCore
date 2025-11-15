@@ -2,7 +2,8 @@ package homework.homework10.medicalCenter.storage;
 
 import homework.homework10.medicalCenter.Profession;
 import homework.homework10.medicalCenter.exception.DoctorNotFoundException;
-import homework.homework10.medicalCenter.human.Doctor;
+import homework.homework10.medicalCenter.model.Doctor;
+
 
 import java.io.Serializable;
 
