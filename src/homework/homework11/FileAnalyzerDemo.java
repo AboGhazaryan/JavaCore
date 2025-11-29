@@ -12,7 +12,7 @@ public class FileAnalyzerDemo {
         FileAnalyzer fileAnalyzer = new FileAnalyzer();
 
         String path = "C:\\Users\\Admin\\IdeaProjects\\JavaCore\\src\\homework\\homework11\\Test.txt";
-
+//
         Map<String, Integer> stringIntegerMap = fileAnalyzer.wordMap(path);
 
 
@@ -20,16 +20,16 @@ public class FileAnalyzerDemo {
             System.out.println(stringIntegerEntry.getKey() + ": " + stringIntegerEntry.getValue());
         }
 
-        System.out.println(fileAnalyzer.totalWordCount(path));
-
-        System.out.println(fileAnalyzer.uniqueWordCount(path));
-
-        Map<String, Integer> topMap = fileAnalyzer.topFrequentWords(path,1);
-        for(Map.Entry<String,Integer>top : topMap.entrySet()){
-            System.out.println(top.getKey() + ": " + top.getValue());
-        }
-
-
-        System.out.println(fileAnalyzer.countWordOccurrences(path, "manuk"));
+//        System.out.println(fileAnalyzer.totalWordCount(path));
+//
+        // System.out.println(fileAnalyzer.uniqueWordCount(path));
+//
+//        Map<String, Integer> topMap = fileAnalyzer.topFrequentWords(path,2);
+//        for(Map.Entry<String,Integer>top : topMap.entrySet()){
+//            System.out.println(top.getKey() + ": " + top.getValue());
+//        }
+//
+//
+//        System.out.println(fileAnalyzer.countWordOccurrences(path, "manuk"));
     }
 }

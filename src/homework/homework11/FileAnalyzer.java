@@ -11,19 +11,19 @@ public class FileAnalyzer {
 
     public Map<String, Integer> wordMap(String path) throws IOException {
         // Читаем файл, составляем мапу слово-количество и возвращаем ее
-        Map<String, Integer> resultMap = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        Map<String,Integer> resultMap = new HashMap<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(path))){
             String line;
-            while ((line = br.readLine()) != null) {
-                String[] words = line.split(" ");
+            while((line = br.readLine()) != null){
+                String[] words = line.split("\\s+");
                 for (String word : words) {
-                    if (resultMap.containsKey(word)) {
-                        resultMap.put(word, resultMap.get(word) + 1);
-                    } else {
-                        resultMap.put(word, 1);
+                    if(resultMap.containsKey(word)){
+                        resultMap.put(word,resultMap.get(word) + 1);
+                    }else {
+                        resultMap.put(word,1);
                     }
-                }
 
+                }
             }
         }
         return resultMap;
@@ -53,8 +53,8 @@ public class FileAnalyzer {
         // Читаем файл, находим топ-N часто встречающихся слов
 
         Map<String, Integer> wordMap = wordMap(path);
-        Set<Map.Entry<String, Integer>> entries = wordMap.entrySet();
-        List<Map.Entry<String,Integer>> entryList = new ArrayList<>(entries);
+       // Set<Map.Entry<String, Integer>> entries = wordMap.entrySet();
+        List<Map.Entry<String,Integer>> entryList = new ArrayList<>(wordMap.entrySet());
         Collections.sort(entryList,new Comparator<Map.Entry<String, Integer>>() {
 
             @Override
@@ -68,7 +68,11 @@ public class FileAnalyzer {
         for (int i = 0; i < length; i++) {
 
             Map.Entry<String,Integer> entry = entryList.get(i);
+
+            //var entry = entryList.get(i);
             topMap.put(entry.getKey(),entry.getValue());
+
+
         }
 
 
