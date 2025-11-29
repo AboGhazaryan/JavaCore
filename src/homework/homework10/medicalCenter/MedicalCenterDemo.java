@@ -1,17 +1,19 @@
 package homework.homework10.medicalCenter;
 
 
-
 import homework.homework10.medicalCenter.exception.DoctorNotFoundException;
 import homework.homework10.medicalCenter.model.Doctor;
 import homework.homework10.medicalCenter.model.Patient;
+import homework.homework10.medicalCenter.model.User;
 import homework.homework10.medicalCenter.storage.DoctorStorage;
 import homework.homework10.medicalCenter.storage.PatientStorage;
+import homework.homework10.medicalCenter.storage.UserStorage;
 import homework.homework10.medicalCenter.util.FileUtil;
 
 
 import java.util.Date;
 import java.util.Scanner;
+
 
 public class MedicalCenterDemo implements Commands {
 
@@ -19,9 +21,12 @@ public class MedicalCenterDemo implements Commands {
     private static Scanner scanner = new Scanner(System.in);
     private static DoctorStorage doctorStorage = FileUtil.deseralizeDoctorStorage();
     private static PatientStorage patientStorage = FileUtil.deseralizePatientStorage();
+    private static UserStorage userStorage = FileUtil.deseralizeUserStorage();
+    private static User currentUser = null;
 
     public static void main(String[] args) {
 
+        addAdmin();
 
         boolean isRun = true;
 
@@ -31,6 +36,89 @@ public class MedicalCenterDemo implements Commands {
 
             switch (command) {
                 case EXIT:
+                    isRun = false;
+                    break;
+                case LOGIN:
+                    login();
+                    break;
+                case REGISTER:
+                    register();
+                default:
+                    System.out.println("Wrong command! try again!");
+
+            }
+
+
+        }
+
+    }
+
+    private static void register() {
+        System.out.println("Please input name,surname,email,password");
+        String inputData = scanner.nextLine();
+        String[] data = inputData.split(",");
+        String name = data[0];
+        String surname = data[1];
+        String email = data[2];
+        String password = data[3];
+
+        if (userStorage.getByEmail(email) == null) {
+            userStorage.register(new User(name, surname, email, password, Role.USER));
+            FileUtil.serializeUserData(userStorage);
+            System.out.println("User registred successfully");
+        } else {
+            System.out.println("You cannot register with this email!");
+        }
+
+
+    }
+
+    private static void login() {
+        System.out.println("Please input email,password");
+
+        String inputData = scanner.nextLine();
+        String[] data = inputData.split(",");
+        if (data.length != 2) {
+            System.err.println("Invalid input! Please enter email and password separated by a comma.");
+        }
+        String login = data[0];
+        String password = data[1];
+
+        User byEmail = userStorage.getByEmail(login);
+        if (byEmail != null && byEmail.getPassword().equals(password)) {
+            System.out.println("Welcom " + byEmail.getName());
+            currentUser = byEmail;
+            if (byEmail.getRole() == Role.ADMIN) {
+                adminLogin();
+            } else if (byEmail.getRole() == Role.USER) {
+                userLogin();
+            }
+        } else {
+            System.err.println("Invalid email or password");
+        }
+    }
+
+
+    private static void addAdmin() {
+        User admin = new User("Admin", "Admin", "admin@mail.com", "helloadmin", Role.ADMIN);
+        if (userStorage.getByEmail(admin.getEmail()) == null) {
+            userStorage.register(admin);
+            System.out.println("Admin successfully creadet");
+        }
+
+    }
+
+    private static void adminLogin() {
+
+        boolean isRun = true;
+
+        while (isRun) {
+            Commands.printAdminCommands();
+            String command = scanner.nextLine();
+
+            switch (command) {
+                case LOGOUT:
+                    currentUser = null;
                     isRun = false;
                     break;
                 case ADD_DOCTOR:
@@ -64,6 +152,12 @@ public class MedicalCenterDemo implements Commands {
                 case PRINT_ALL_DOCTOR:
                     doctorStorage.print();
                     break;
+                case PRINT_ALL_USER:
+                    userStorage.printAllUsers();
+                    break;
+                case REMOVE_USER_BY_EMAIL:
+                    removeUserBYemail();
+                    break;
                 default:
                     System.out.println("Wrong command! try again!");
 
@@ -71,7 +165,61 @@ public class MedicalCenterDemo implements Commands {
 
 
         }
+    }
 
+    private static void removeUserBYemail() {
+        userStorage.printAllUsers();
+        System.out.println("Please input user email");
+        String email = scanner.nextLine();
+        if (userStorage.getByEmail(email) != null) {
+            userStorage.removeUserByEmail(email);
+            FileUtil.serializeUserData(userStorage);
+            System.out.println("User has been successfully REMOVED!");
+        } else {
+            System.out.println("user with " + email + " does not exists! ");
+        }
+    }
+
+    private static void userLogin() {
+
+        boolean isRun = true;
+
+        while (isRun) {
+            Commands.printUserCommands();
+            String command = scanner.nextLine();
+
+            switch (command) {
+                case LOGOUT:
+                    currentUser = null;
+                    isRun = false;
+                    break;
+                case ADD_DOCTOR:
+                    addDoctor();
+                    FileUtil.serializeDoctorData(doctorStorage);
+                    break;
+                case SEARCH_DOCTOR_BY_PROFESSION:
+                    profession();
+                    break;
+                case ADD_PATIENT_USER:
+                    addPatient();
+                    FileUtil.serializePatientData(patientStorage);
+                    break;
+                case PRINT_ALL_PATIENTS_BY_DOCTOR_USER:
+                    printPateintByDoctor();
+                    break;
+                case PRINT_ALL_PATIENTS_USER:
+                    patientStorage.print();
+                    break;
+                case PRINT_ALL_DOCTOR_USER:
+                    doctorStorage.print();
+                    break;
+                default:
+                    System.out.println("Wrong command! try again!");
+
+            }
+
+
+        }
     }
 
     private static void changeDoctorById() {
@@ -125,7 +273,6 @@ public class MedicalCenterDemo implements Commands {
     }
 
 
-
     private static void addPatient() {
         System.out.println("Please choose Doctor by phone number");
         doctorStorage.print();
@@ -144,7 +291,6 @@ public class MedicalCenterDemo implements Commands {
             String phone = scanner.nextLine();
 
 
-
             Patient patient = new Patient();
             patient.setName(name);
             patient.setSurname(surName);
@@ -152,6 +298,7 @@ public class MedicalCenterDemo implements Commands {
             patient.setPhoneNumber(phone);
             patient.setRegisterDateTime(new Date());
             patient.setDoctor(doctor);
+            patient.setUser(currentUser);
 
             patientStorage.add(patient);
             System.out.println("The patient has registered");

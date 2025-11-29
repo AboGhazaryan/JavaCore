@@ -2,12 +2,14 @@ package homework.homework10.medicalCenter.util;
 
 import homework.homework10.medicalCenter.storage.DoctorStorage;
 import homework.homework10.medicalCenter.storage.PatientStorage;
+import homework.homework10.medicalCenter.storage.UserStorage;
 
 import java.io.*;
 
 public class FileUtil {
     private static final String DOCTOR_DATA_FILE = "C:\\Users\\Admin\\IdeaProjects\\JavaCore\\src\\homework\\homework10\\medicalCenter\\data\\doctorData.data";
     private static final String PATIENT_DATA_FILE = "C:\\Users\\Admin\\IdeaProjects\\JavaCore\\src\\homework\\homework10\\medicalCenter\\data\\patientData.data";
+    private static final String USER_DATA_FILE = "C:\\Users\\Admin\\IdeaProjects\\JavaCore\\src\\homework\\homework10\\medicalCenter\\data\\userData.data";
 
     public static void serializeDoctorData(DoctorStorage doctorStorage){
         try(ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(DOCTOR_DATA_FILE))){
@@ -26,6 +28,17 @@ public class FileUtil {
             System.out.println("File not found for patient data" + e);
         } catch (IOException e) {
             System.out.println("Failed to serialize patient data" + e);
+        }
+    }
+
+
+    public static void serializeUserData(UserStorage userStorage){
+        try(ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(USER_DATA_FILE))){
+            outputStream.writeObject(userStorage);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found for user data" + e);
+        } catch (IOException e) {
+            System.out.println("Failed to serialize user data" + e);
         }
     }
 
@@ -59,6 +72,22 @@ public class FileUtil {
             e.printStackTrace();
         }
         return new PatientStorage();
+    }
+
+    public static UserStorage deseralizeUserStorage(){
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(USER_DATA_FILE))){
+            Object obj = objectInputStream.readObject();
+            if(obj instanceof UserStorage userStorage){
+                return userStorage;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found for user data" + e);
+        } catch (IOException e) {
+            System.out.println("Failed to serialize user data" + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new UserStorage();
     }
 
 }
